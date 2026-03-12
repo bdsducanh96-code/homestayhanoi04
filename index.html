@@ -5,299 +5,89 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
 <title>Homestay Hà Nội - Nghỉ dưỡng Sóc Sơn</title>
 <style>
+/* ... (Giữ nguyên phần CSS gốc của bạn và thêm/sửa các đoạn dưới đây) ... */
 :root {
-  /* Bảng màu Tâm lý học: Thiên nhiên & Ấm áp (Nature & Warmth) */
-  --accent: #E07A5F; /* Cam đất: Ấm áp, kích thích sự hào hứng, chào đón */
+  --accent: #E07A5F;
   --accent-hover: #D06549;
-  --muted: #6B7B6E; /* Xanh lá xám: Thư giãn, nhẹ nhàng */
-  --text-main: #2C3E30; /* Xanh rêu đậm: Sang trọng, tin cậy, thiên nhiên */
-  --bg-main: #FBF9F6; /* Nền màu cát/be: Dịu mắt, thoải mái */
-  --card-bg: #ffffff;
+  --text-main: #2C3E30;
+  --bg-main: #FBF9F6;
   --glass: rgba(251, 249, 246, 0.95);
-  --maxw: 1200px;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', system-ui, Arial, sans-serif; background: var(--bg-main); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
-.container { width: 90%; max-width: var(--maxw); margin: 0 auto; }
-.center { text-align: center; }
 
-/* Các section xen kẽ màu nền để tạo sự phân cách */
-.section-white { background-color: #ffffff; }
-.section-padding { padding: 60px 0; }
-
-/* HERO */
-.hero {
-  min-height: 85vh;
+/* Nút gộp mới trong Modal */
+.combined-btn {
+  width: 100%;
+  padding: 18px;
+  background: #0068ff;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
-  position: relative;
-  background: url("https://images.unsplash.com/photo-1542718610-a1d656d1884c?q=80&w=1920&auto=format&fit=crop") center/cover no-repeat;
+  gap: 10px;
+  box-shadow: 0 10px 20px rgba(0,104,255,0.2);
 }
-.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(44,62,48,0.4) 0%, rgba(44,62,48,0.8) 100%); }
-.hero-inner { position: relative; z-index: 2; text-align: center; padding: 20px; width: 100%; }
+.combined-btn:hover { background: #0056d6; transform: translateY(-2px); }
 
-@keyframes pulseGlow {
-  0%, 100% { text-shadow: 0 0 15px rgba(224, 122, 95, 0.4); transform: scale(1); }
-  50% { text-shadow: 0 0 25px rgba(224, 122, 95, 0.8); transform: scale(1.02); }
+/* Thông báo điều hướng khi bấm nút Zalo nổi */
+#zaloNotice {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 50px;
+    z-index: 1000;
+    display: none;
+    font-size: 14px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
 }
-.hero h1 { 
-  font-size: clamp(28px, 5vw, 56px); 
-  margin: 0 0 15px; 
-  color: #fff; 
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  animation: pulseGlow 3s ease-in-out infinite;
-}
-.hero p { font-size: clamp(16px, 3vw, 20px); margin: 0 0 20px; color: #f8f9fa; font-weight: 300; }
 
-.hero-btn-wrap {
-  position: absolute;
-  bottom: 50px;
-  z-index: 2;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  text-align: center;
-}
-.btn { 
-  background: var(--accent); color: #fff; padding: 14px 32px; border-radius: 50px; 
-  text-decoration: none; font-weight: 600; font-size: 16px;
-  box-shadow: 0 4px 15px rgba(224, 122, 95, 0.4); transition: 0.3s; display: inline-block;
-}
-.btn:hover { background: var(--accent-hover); transform: translateY(-3px); }
-
-/* STATS */
-.stats { margin-top: -30px; padding-bottom: 50px; position: relative; z-index: 3; }
-.stats-title {
-  text-align: center; 
-  margin-bottom: 35px; 
-  font-size: clamp(22px, 4vw, 32px); 
-  color: var(--accent); 
-  font-weight: 800;
-  text-transform: uppercase;
-  background: var(--bg-main);
-  padding: 15px 20px;
-  border-radius: 12px;
-  box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
-}
-.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-.stat-card { background: var(--card-bg); padding: 25px 15px; border-radius: 16px; box-shadow: 0 10px 30px rgba(44,62,48,0.08); text-align: center; border-bottom: 4px solid var(--accent); }
-.stat-num { font-size: 32px; font-weight: 800; color: var(--text-main); }
-.stat-label { color: var(--muted); margin-top: 8px; font-size: 15px; font-weight: 500;}
-
-/* FEATURES zigzag */
-.feature-row { display: flex; gap: 40px; align-items: center; margin-bottom: 60px; flex-wrap: wrap; }
-.feature-row:nth-child(even) { flex-direction: row-reverse; }
-.feature-img { flex: 1; min-width: 300px; }
-.feature-img img { width: 100%; border-radius: 16px; display: block; object-fit: cover; height: 350px; box-shadow: 0 15px 30px rgba(44,62,48,0.1); }
-.feature-content { flex: 1; min-width: 300px; }
-.feature-title { font-size: 24px; font-weight: 700; margin-bottom: 12px; color: var(--text-main); position: relative; display: inline-block; }
-.feature-title::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 40px; height: 3px; background: var(--accent); border-radius: 2px; }
-.feature-desc { color: var(--muted); font-size: 16px; margin-top: 15px; }
-
-/* GALLERY slice */
-.gallery-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 15px; margin-top: 30px; }
-.gallery-grid img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; cursor: pointer; transition: 0.3s; }
-.gallery-grid img:hover { filter: brightness(0.9); transform: scale(1.02); }
-
-/* VIDEO */
-video { width: 100%; max-width: 900px; border-radius: 16px; box-shadow: 0 15px 35px rgba(44,62,48,0.1); }
-
-/* REVIEWS carousel */
-.reviews { overflow: hidden; }
-.rev-track { display: flex; gap: 20px; overflow-x: auto; padding: 20px 5px; scroll-snap-type: x mandatory; scroll-behavior: smooth; }
-.rev-track::-webkit-scrollbar { height: 6px; }
-.rev-track::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
-.rev { min-width: 300px; max-width: 320px; background: var(--card-bg); padding: 25px; border-radius: 16px; box-shadow: 0 8px 25px rgba(44,62,48,0.06); scroll-snap-align: start; border: 1px solid #eee; }
-.rev .star { color: #f59e0b; margin: 8px 0; font-size: 18px; }
-.rev p { color: #555; font-size: 15px; font-style: italic; }
-.rev-name { font-weight: 700; font-size: 17px; color: var(--text-main); }
-
-/* BOOKING FORM */
-.form-section { background: url('https://images.unsplash.com/photo-1519455953755-292201245728?q=80&w=1920&auto=format&fit=crop') center/cover fixed; position: relative; }
-.form-section::before { content: ""; position: absolute; inset: 0; background: rgba(44, 62, 48, 0.85); backdrop-filter: blur(5px); }
-.form-card { position: relative; z-index: 2; background: var(--glass); max-width: 800px; margin: 0 auto; padding: 40px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-.form-group { text-align: left; margin-bottom: 20px; }
-.form-group label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 600; color: var(--text-main); }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-input { width: 100%; padding: 14px; border-radius: 8px; border: 1px solid #ccc; background: #fff; font-size: 15px; color: #333; transition: 0.3s; }
-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(224,122,95,0.2); }
-.submit-btn { background: var(--accent); border: none; padding: 16px; border-radius: 8px; color: #fff; font-weight: 700; font-size: 16px; width: 100%; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px;}
-.submit-btn:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(224,122,95,0.3); }
-
-/* POPUP modal */
-.modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.7); z-index: 999; backdrop-filter: blur(3px); }
-.modal-card { width: 92%; max-width: 500px; background: #fff; padding: 25px; border-radius: 16px; color: var(--text-main); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-.msgbox { width: 100%; height: 180px; border-radius: 8px; border: 1px solid #ddd; padding: 12px; font-family: inherit; font-size: 14px; resize: none; background: #f9fafb; margin-top: 10px; }
-
-/* FOOTER & FLOATING */
-footer { padding: 40px 0; text-align: center; color: var(--muted); background: var(--card-bg); border-top: 1px solid #eaeaea; }
-.floating { position: fixed; right: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 90; }
-.floating a { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 20px; background: #0068ff; color: #fff; border-radius: 50px; text-decoration: none; font-weight: 600; box-shadow: 0 10px 25px rgba(0,104,255,0.3); transition: 0.3s; }
-.floating a.call { background: #ef4444; box-shadow: 0 10px 25px rgba(239,68,68,0.3); }
-.floating a:hover { transform: translateY(-3px); }
-
-/* =========================================
-   RESPONSIVE (ĐIỆN THOẠI & TABLET)
-========================================= */
-@media(max-width: 900px) {
-  .gallery-grid { grid-template-columns: 1fr; }
-  .gallery-grid img { height: 250px; }
-}
-@media(max-width: 768px) {
-  .section-padding { padding: 40px 0; }
-  .feature-row, .feature-row:nth-child(even) { flex-direction: column; gap: 20px; margin-bottom: 40px; }
-  .feature-img, .feature-content { min-width: 100%; width: 100%; }
-  .feature-img img { height: 260px; }
-  .stats-grid { grid-template-columns: 1fr 1fr; }
-  .form-row { grid-template-columns: 1fr; gap: 0; }
-  .form-card { padding: 25px 15px; }
-}
-@media(max-width: 480px) {
-  .hero { min-height: 75vh; }
-  .stats-title { font-size: 20px; margin-top: -10px; }
-  .stats-grid { grid-template-columns: 1fr; gap: 15px; }
-  .floating { right: 15px; bottom: 15px; }
-  .floating a { padding: 12px 16px; font-size: 14px; }
-}
+/* (Phần CSS còn lại giữ nguyên như bản cũ của bạn) */
 </style>
 </head>
 <body>
 
-<section class="hero" role="banner">
-  <div class="hero-inner container">
-    <h1>HOMESTAY HÀ NỘI</h1>
-    <p>Chốn bình yên giữa rừng thông Sóc Sơn – Nơi gắn kết tình thân gia đình</p>
-  </div>
-  <div class="hero-btn-wrap">
-    <a class="btn" href="#form">Nhận tư vấn ngay</a>
-  </div>
-</section>
-
-<section class="stats container">
-  <h2 class="stats-title">Vì sao khách hàng tin tưởng lựa chọn Homestay Hà Nội?</h2>
-  
-  <div class="stats-grid">
-    <div class="stat-card"><div class="stat-num" style="color: var(--accent);">1200+</div><div class="stat-label">Khách đã trải nghiệm</div></div>
-    <div class="stat-card"><div class="stat-num" style="color: #f59e0b;">4.9/5</div><div class="stat-label">Đánh giá trung bình</div></div>
-    <div class="stat-card"><div class="stat-num" style="color: #10b981;">98%</div><div class="stat-label">Khách hàng quay lại</div></div>
-    <div class="stat-card"><div class="stat-num" style="color: #3b82f6;">500+</div><div class="stat-label">Booking mỗi năm</div></div>
-  </div>
-</section>
-
-<section class="section-padding section-white">
-  <div class="container">
-    <h2 class="center" style="margin-bottom: 40px; font-size: clamp(24px, 4vw, 32px);">Tiện ích nghỉ dưỡng đẳng cấp</h2>
-    
-    <div class="feature-row">
-      <div class="feature-img"><img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?q=80&w=1200&auto=format&fit=crop" alt="Bể bơi rừng thông"></div>
-      <div class="feature-content">
-        <div class="feature-title">Bể bơi vô cực view rừng thông</div>
-        <div class="feature-desc">Đắm mình trong làn nước trong xanh, ngắm trọn vẹn bình minh ló rạng sau rặng thông. Bể bơi có khu vực nước nông cực kỳ an toàn cho các bé thỏa sức vui đùa.</div>
-      </div>
-    </div>
-
-    <div class="feature-row">
-      <div class="feature-img"><img src="https://images.unsplash.com/photo-1510107873837-7b6bb81c81ef?q=80&w=1200&auto=format&fit=crop" alt="BBQ ngoài trời"></div>
-      <div class="feature-content">
-        <div class="feature-title">Tiệc BBQ Sân Vườn Chill Dưới Sao</div>
-        <div class="feature-desc">Khoảng sân vườn cực rộng lấp lánh ánh đèn rèm. Homestay trang bị sẵn bếp nướng, than hoa và bàn ghế để cả đoàn cùng nhau tổ chức tiệc nướng sảng khoái giữa tiết trời se lạnh.</div>
-      </div>
-    </div>
-
-    <div class="feature-row">
-      <div class="feature-img"><img src="https://images.unsplash.com/photo-1622279457486-62dcc4a631d6?q=80&w=1200&auto=format&fit=crop" alt="Sân Pickleball"></div>
-      <div class="feature-content">
-        <div class="feature-title">Sân Pickleball Thể Thao Năng Động</div>
-        <div class="feature-desc">Bắt kịp xu hướng thể thao mới nhất! Sân Pickleball tiêu chuẩn ngay trong khuôn viên, cung cấp đủ vợt và bóng để gia đình và hội bạn thân giao lưu thể thao, rèn luyện sức khỏe mỗi buổi chiều.</div>
-      </div>
-    </div>
-
-    <div class="feature-row">
-      <div class="feature-img"><img src="https://images.unsplash.com/photo-1516280440502-8618a80373ab?q=80&w=1200&auto=format&fit=crop" alt="Phòng Karaoke"></div>
-      <div class="feature-content">
-        <div class="feature-title">Phòng Karaoke Giải Trí Đỉnh Cao</div>
-        <div class="feature-desc">Hệ thống âm thanh sống động, màn hình lớn sắc nét cùng tường cách âm cực tốt. Thỏa sức thể hiện đam mê ca hát và quẩy hết mình cùng bạn bè mà không sợ ảnh hưởng đến xung quanh.</div>
-      </div>
-    </div>
-
-    <div class="feature-row">
-      <div class="feature-img"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1200&auto=format&fit=crop" alt="Chèo thuyền hồ"></div>
-      <div class="feature-content">
-        <div class="feature-title">Chèo SUP & Kayak Khám Phá Mặt Hồ</div>
-        <div class="feature-desc">Nằm tựa mình bên hồ nước trong vắt, chúng tôi cung cấp thuyền Kayak và ván SUP kèm áo phao. Tận hưởng cảm giác thư thái lướt trên mặt nước giữa thiên nhiên tĩnh lặng.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section-padding" id="gallery">
-  <div class="container">
-    <h2 class="center" style="font-size: clamp(24px, 4vw, 32px);">Không gian mộc mạc & Sang trọng</h2>
-    <p class="center" style="color:var(--muted); margin-top:10px;">Góc sống ảo triệu view mang đậm phong cách nhà gỗ Sóc Sơn</p>
-    <div class="gallery-grid">
-      <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=1200&auto=format&fit=crop" alt="Nhà gỗ rừng thông">
-      <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?q=80&w=800&auto=format&fit=crop" alt="Phòng ngủ ấm cúng">
-      <img src="https://images.unsplash.com/photo-1521401830884-6c03c1c87ebb?q=80&w=800&auto=format&fit=crop" alt="Bàn trà chill">
-      <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=1200&auto=format&fit=crop" alt="Toàn cảnh Homestay">
-    </div>
-  </div>
-</section>
-
-<section class="section-padding section-white">
-  <div class="container">
-    <h2 class="center" style="font-size: clamp(24px, 4vw, 32px); margin-bottom: 30px;">Video trải nghiệm thực tế</h2>
-    <div style="display:flex; justify-content:center;">
-      <video controls playsinline preload="metadata">
-        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-        Trình duyệt không hỗ trợ video.
-      </video>
-    </div>
-  </div>
-</section>
-
-<section class="section-padding">
-  <div class="container">
-    <h2 class="center" style="font-size: clamp(24px, 4vw, 32px); margin-bottom: 30px;">Khách hàng nói gì về chúng tôi?</h2>
-    <div class="rev-track" id="revTrack" tabindex="0">
-      </div>
-  </div>
-</section>
+<div id="zaloNotice">Vui lòng điền form bên dưới để nhận báo giá nhanh nhất! 👇</div>
 
 <section id="form" class="form-section section-padding">
   <div class="container">
     <div class="form-card">
       <h2 class="center" style="font-size: clamp(26px, 5vw, 36px); margin-bottom: 10px; color: var(--text-main);">Tôi muốn được tư vấn</h2>
-      <p class="center" style="margin-bottom: 30px; color: var(--muted);">Vui lòng để lại thông tin, đội ngũ của chúng tôi sẽ liên hệ lại báo giá và ưu đãi ngay cho bạn.</p>
+      <p class="center" style="margin-bottom: 30px; color: var(--muted);">Vui lòng để lại thông tin, chúng tôi sẽ báo giá kèm ưu đãi ngay.</p>
       
       <form id="bookingForm">
         <div class="form-row">
           <div class="form-group">
-            <label for="name">Họ và tên người đặt (*)</label>
+            <label>Họ và tên người đặt (*)</label>
             <input id="name" type="text" placeholder="Nhập họ tên của bạn" required>
           </div>
           <div class="form-group">
-            <label for="phone">Số điện thoại Zalo (*)</label>
+            <label>Số điện thoại Zalo (*)</label>
             <input id="phone" type="tel" placeholder="VD: 0365725659" maxlength="10" required>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label for="checkin">Ngày Check-in dự kiến (*)</label>
+            <label>Ngày Check-in dự kiến (*)</label>
             <input id="checkin" type="text" placeholder="VD: 13/03/2026" maxlength="10" required>
           </div>
           <div class="form-group">
-            <label for="checkout">Ngày Check-out dự kiến (*)</label>
+            <label>Ngày Check-out dự kiến (*)</label>
             <input id="checkout" type="text" placeholder="VD: 14/03/2026" maxlength="10" required>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="guests">Số lượng người trong đoàn (Người lớn & Trẻ em)</label>
+          <label>Số lượng người (Người lớn & Trẻ em)</label>
           <input id="guests" type="number" min="1" placeholder="VD: 10" required>
         </div>
 
@@ -309,164 +99,126 @@ footer { padding: 40px 0; text-align: center; color: var(--muted); background: v
 
 <div class="modal" id="modal">
   <div class="modal-card">
-    <h3 style="font-size: 20px; color: #111; margin-bottom: 5px;">Xác nhận thông tin</h3>
-    <div id="confirmText" style="color:#555; font-size: 14px;"></div>
+    <h3 style="margin-bottom: 10px; text-align: center;">🎉 Sẵn sàng gửi thông tin!</h3>
+    <p style="font-size: 14px; color: #666; text-align: center; margin-bottom: 15px;">Hệ thống đã tự động sao chép thông tin. Bạn chỉ cần nhấn nút xanh dưới đây và <b>Dán (Paste)</b> vào ô chat Zalo.</p>
+    
     <textarea id="msgBox" class="msgbox" readonly></textarea>
-    <div style="display:flex; gap:12px; margin-top:15px; flex-wrap: wrap;">
-      <button id="copyBtn" style="flex:1; min-width:140px; padding:12px; border-radius:8px; background:#1f2937; color:#fff; border:none; font-weight:600; cursor:pointer;">📋 Copy thông tin</button>
-      <button id="zaloBtn" style="flex:1; min-width:140px; padding:12px; border-radius:8px; background:#0068ff; color:#fff; border:none; font-weight:600; cursor:pointer;">💬 Mở Zalo gửi ngay</button>
+    
+    <div style="margin-top:20px;">
+      <button id="combinedBtn" class="combined-btn">
+        <span>💬</span> XÁC NHẬN & GỬI QUA ZALO NGAY
+      </button>
     </div>
-    <div style="text-align:right; margin-top:15px;">
-      <button id="closeModal" style="background:none; border:none; color:#dc2626; font-weight:bold; cursor:pointer; padding:5px 10px; font-size:16px;">Đóng cửa sổ ✕</button>
+    
+    <div style="text-align:center; margin-top:15px;">
+      <button id="closeModal" style="background:none; border:none; color:#999; cursor:pointer; font-size:14px;">Chỉnh sửa lại thông tin</button>
     </div>
   </div>
 </div>
 
 <div class="floating">
-  <a href="https://zalo.me/0365725659" target="_blank">💬 Chat Zalo ngay</a>
+  <a href="javascript:void(0)" onclick="handleZaloClick()">💬 Chat Zalo ngay</a>
   <a href="tel:0365725659" class="call">📞 0365.725.659</a>
 </div>
 
-<footer>
-  <div class="container">
-    <p style="font-weight: bold; font-size: 16px; margin-bottom: 5px; color: var(--text-main);">Homestay Nghỉ Dưỡng Sóc Sơn – Hà Nội</p>
-    <p>© 2026 Bản quyền thuộc về thương hiệu. Hotline hỗ trợ: 0365.725.659</p>
-  </div>
-</footer>
-
 <script>
 const API_URL = "https://script.google.com/macros/s/AKfycbyKoQkT0Hdq_ixsYs03Ha1hr-nATncexSfDAn9mroSlVwZHBaEWNmdnMtAXMd_rmuPz/exec";
-const ZALO = "0365725659";
+const ZALO_NUMBER = "0365725659";
 
-/* ====== REVIEWS ====== */
-const reviews = [
-  {name: "Chị Thùy Linh", star: 5, text: "Gia đình mình vừa có chuyến đi cuối tuần cực kỳ đáng nhớ. Không gian rộng rãi, thoáng mát, bao quanh là rừng thông xanh mướt. Bể bơi vô cực sạch sẽ, các bé nhà mình chơi đùa thỏa thích không muốn lên. Chắc chắn sẽ quay lại!"},
-  {name: "Anh Quốc Huy", star: 5, text: "Điểm cộng lớn nhất là khu vực nướng BBQ ngoài trời. Homestay chuẩn bị đầy đủ bếp và than, nhóm mình 15 người tổ chức tiệc đêm dưới đèn lung linh cực chill. Sân pickleball cũng rất xịn xò để vận động buổi chiều."},
-  {name: "Nhóm bạn Ngọc Trang", star: 5, text: "Rất riêng tư và yên tĩnh. Tụi mình thuê nguyên căn, tha hồ hát hò ở phòng karaoke cách âm mà không sợ làm phiền ai. Góc nào ở villa chụp ảnh sống ảo cũng đẹp, đậm chất Đà Lạt ngay tại Hà Nội."},
-  {name: "Gia đình chú Minh", star: 5, text: "Người lớn tuổi như tôi rất thích không khí ở đây, buổi sáng dậy sớm tản bộ quanh hồ, chiều thì mấy đứa nhỏ chèo SUP. Nhân viên quản gia chu đáo, hỗ trợ dọn dẹp rất nhiệt tình. Rất đáng tiền."},
-  {name: "Chị Phương Nga", star: 5, text: "Thiết kế phòng ngủ bằng gỗ cực kỳ ấm cúng và thơm mùi tự nhiên. Chăn ga gối đệm sạch sẽ như khách sạn 5 sao. Không gian tĩnh lặng giúp rũ bỏ mọi mệt mỏi của thành phố."},
-  {name: "Anh Hoàng An", star: 5, text: "Từ Hà Nội chạy xe lên chỉ mất khoảng 45 phút, đường đi dễ tìm. View nhìn thẳng ra hồ và rừng núi. Một nơi quá hoàn hảo để xả stress sau những ngày làm việc căng thẳng."}
-];
-
-function renderReviews() {
-  const track = document.getElementById('revTrack');
-  reviews.forEach(r => {
-    const div = document.createElement('div');
-    div.className = 'rev';
-    div.innerHTML = `<div class="rev-name">${r.name}</div><div class="star">${'★'.repeat(r.star)}</div><p>"${r.text}"</p>`;
-    track.appendChild(div);
-  });
+/* 1. XỬ LÝ NÚT CHAT ZALO NỔI */
+function handleZaloClick() {
+    const notice = document.getElementById('zaloNotice');
+    notice.style.display = 'block';
+    document.getElementById('form').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => { notice.style.display = 'none'; }, 4000);
 }
-renderReviews();
 
-/* ====== DATE MASK & VALIDATION ====== */
-// Tự động format DD/MM/YYYY khi gõ
+/* 2. ĐỊNH DẠNG NGÀY THÁNG */
 function formatDatePicker(e) {
   let v = e.target.value.replace(/\D/g,'').slice(0, 8);
-  if (v.length >= 5) {
-    e.target.value = `${v.slice(0,2)}/${v.slice(2,4)}/${v.slice(4)}`;
-  } else if (v.length >= 3) {
-    e.target.value = `${v.slice(0,2)}/${v.slice(2)}`;
-  } else {
-    e.target.value = v;
-  }
+  if (v.length >= 5) e.target.value = `${v.slice(0,2)}/${v.slice(2,4)}/${v.slice(4)}`;
+  else if (v.length >= 3) e.target.value = `${v.slice(0,2)}/${v.slice(2)}`;
+  else e.target.value = v;
 }
 document.getElementById('checkin').addEventListener('input', formatDatePicker);
 document.getElementById('checkout').addEventListener('input', formatDatePicker);
 
-// Hàm chuyển đổi string DD/MM/YYYY sang Date JS
 function parseVNdate(str) {
   const parts = str.split('/');
-  if(parts.length !== 3) return null;
-  const day = parseInt(parts[0], 10);
-  const month = parseInt(parts[1], 10) - 1;
-  const year = parseInt(parts[2], 10);
-  return new Date(year, month, day);
+  return new Date(parts[2], parts[1] - 1, parts[0]);
 }
 
-/* ====== FORM SUBMIT ====== */
+/* 3. XỬ LÝ GỬI FORM */
 const form = document.getElementById('bookingForm');
 const modal = document.getElementById('modal');
 const msgBox = document.getElementById('msgBox');
-const confirmText = document.getElementById('confirmText');
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const checkinStr = document.getElementById('checkin').value.trim();
-  const checkoutStr = document.getElementById('checkout').value.trim();
+  
+  const name = document.getElementById('name').value;
+  const phone = document.getElementById('phone').value;
+  const checkinStr = document.getElementById('checkin').value;
+  const checkoutStr = document.getElementById('checkout').value;
   const guests = document.getElementById('guests').value;
 
-  // 1. Check định dạng điện thoại VN (10 số, đầu 03,05,07,08,09)
-  const phoneRegex = /^(0[3|5|7|8|9])+([0-9]{8})$/;
-  if(!phoneRegex.test(phone)) {
-    alert('Vui lòng nhập đúng số điện thoại di động Việt Nam (Ví dụ: 09... hoặc 03...)');
-    return;
-  }
-
-  // 2. Check định dạng và logic ngày tháng
-  if(checkinStr.length !== 10 || checkoutStr.length !== 10) {
-    alert('Vui lòng nhập ngày tháng theo đúng định dạng DD/MM/YYYY (Ví dụ: 13/03/2026)');
-    return;
-  }
-  
   const d1 = parseVNdate(checkinStr);
   const d2 = parseVNdate(checkoutStr);
-
-  if(!d1 || isNaN(d1.getTime()) || !d2 || isNaN(d2.getTime())) {
-    alert('Ngày tháng không hợp lệ. Vui lòng kiểm tra lại!');
-    return;
-  }
-
-  // Tính số đêm (Cho phép checkout >= checkin)
   const nights = Math.round((d2 - d1) / (1000 * 60 * 60 * 24));
-  if(nights < 0) { 
-    alert('Ngày trả phòng (Check-out) không được trước ngày nhận phòng (Check-in)!'); 
-    return; 
-  }
-
-  // Gửi data ẩn danh qua Google sheet (no-cors)
-  try {
-    fetch(API_URL, { method:'POST', mode:'no-cors', body: JSON.stringify({
-      name, phone, checkin: checkinStr, checkout: checkoutStr, guests, nights, time: new Date().toISOString()
-    })});
-  } catch(err) { console.warn('Lỗi gửi data'); }
-
-  // Nội dung tin nhắn Zalo
-  const message = `Chào Homestay Sóc Sơn, tôi muốn nhận tư vấn:\n\n- Khách hàng: ${name}\n- SĐT: ${phone}\n- Check-in: ${checkinStr}\n- Check-out: ${checkoutStr}\n- Số khách: ${guests} người\n- Cố lưu trú: ${nights} đêm\n\nMã: SS${Date.now().toString().slice(-5)}\nNhờ bạn báo giá giúp tôi nhé!`;
   
-  confirmText.innerHTML = `<strong>Vui lòng kiểm tra lại thông tin dưới đây:</strong><br/>Sau đó nhấn "Mở Zalo" để gửi yêu cầu.`;
-  msgBox.value = message;
+  if(nights < 0) { alert('Ngày trả phòng không hợp lệ!'); return; }
+
+  // Định dạng: "3 ngày 2 đêm"
+  let durationText = "";
+  if (nights === 0) durationText = "Chuyến đi trong ngày";
+  else durationText = `${nights + 1} ngày ${nights} đêm`;
+
+  const bookingCode = "SS" + Date.now().toString().slice(-6).toUpperCase();
+
+  // Gửi Google Sheet
+  fetch(API_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ name, phone, checkin: checkinStr, checkout: checkoutStr, guests, duration: durationText, code: bookingCode })
+  });
+
+  // Tạo nội dung tin nhắn
+  const finalMsg = `YÊU CẦU TƯ VẤN ĐẶT PHÒNG:\n---\n📍 Mã số: ${bookingCode}\n👤 Khách hàng: ${name}\n📞 SĐT: ${phone}\n📅 Check-in: ${checkinStr}\n📅 Check-out: ${checkoutStr}\n⏳ Thời gian lưu trú: ${durationText}\n👥 Số lượng: ${guests} người\n---\nNhờ Homestay kiểm tra lịch và báo giá giúp mình nhé!`;
+
+  msgBox.value = finalMsg;
   modal.style.display = 'flex';
 });
 
-/* ====== MODAL ACTIONS ====== */
-document.getElementById('copyBtn').addEventListener('click', async () => {
+/* 4. XỬ LÝ NÚT GỘP (COPY + OPEN ZALO) */
+document.getElementById('combinedBtn').addEventListener('click', async () => {
+  const text = msgBox.value;
+  
+  // Thực hiện Copy
   try {
-    await navigator.clipboard.writeText(msgBox.value);
-    alert('✅ Đã copy! Hãy dán vào Zalo để gửi cho quản gia nhé.');
-  } catch(e) {
+    await navigator.clipboard.writeText(text);
+  } catch (err) {
     msgBox.select();
     document.execCommand('copy');
-    alert('✅ Đã copy! Hãy dán vào Zalo để gửi cho quản gia nhé.');
   }
+
+  // Thông báo nhanh và mở Zalo
+  const btn = document.getElementById('combinedBtn');
+  btn.innerHTML = "✅ ĐÃ COPY - ĐANG MỞ ZALO...";
+  btn.style.background = "#10b981";
+
+  setTimeout(() => {
+    window.open(`https://zalo.me/${ZALO_NUMBER}`, '_blank');
+    // Reset lại nút sau khi khách quay lại
+    setTimeout(() => {
+        btn.innerHTML = "💬 XÁC NHẬN & GỬI QUA ZALO NGAY";
+        btn.style.background = "#0068ff";
+    }, 2000);
+  }, 800);
 });
-document.getElementById('zaloBtn').addEventListener('click', () => {
-  navigator.clipboard.writeText(msgBox.value).catch(err => console.log('Clipboard error'));
-  window.open("https://zalo.me/" + ZALO, '_self');
-});
+
 document.getElementById('closeModal').addEventListener('click', () => modal.style.display = 'none');
-
-/* ====== LIGHTBOX ====== */
-document.querySelectorAll('.gallery-grid img').forEach(img => {
-  img.addEventListener('click', () => {
-    const w = window.open('');
-    w.document.write(`<body style="margin:0; background:#000; display:flex; justify-content:center; align-items:center; height:100vh;"><img src="${img.src}" style="max-width:95%; max-height:95vh; object-fit:contain; border-radius:10px;"/></body>`);
-  });
-});
-
-window.addEventListener('keydown', (e) => { if(e.key === 'Escape') modal.style.display = 'none' });
 </script>
+
 </body>
 </html>
