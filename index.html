@@ -20,7 +20,7 @@
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Inter', sans-serif; background: var(--bg-main); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
-.container { width: 90%; max-width: var(--maxw); margin: 0 auto; }
+.container { width: 92%; max-width: var(--maxw); margin: 0 auto; }
 .center { text-align: center; }
 
 .section-white { background-color: #ffffff; }
@@ -28,9 +28,13 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-main); color: var(
 
 /* HERO */
 .hero {
-  min-height: 85vh;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  color: white; position: relative;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: relative;
   background: url("https://images.unsplash.com/photo-1542718610-a1d656d1884c?q=80&w=1920&auto=format&fit=crop") center/cover no-repeat;
 }
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(44,62,48,0.3) 0%, rgba(44,62,48,0.7) 100%); }
@@ -49,43 +53,46 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-main); color: var(
 .stats { margin-top: -40px; position: relative; z-index: 3; margin-bottom: 40px; }
 .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
 .stat-card { background: var(--card-bg); padding: 30px 15px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
-.stat-num { font-size: 36px; font-weight: 800; color: var(--primary); }
-.stat-label { color: var(--muted); margin-top: 5px; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
+.stat-num { font-size: 32px; font-weight: 800; color: var(--primary); }
+.stat-label { color: var(--muted); margin-top: 5px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
 
-/* AMENITIES (TIỆN NGHI) - Tối ưu 2 cột trên mobile */
-.amenities-wrapper { max-width: 1000px; margin: 0 auto; background: var(--card-bg); padding: 35px 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
-.amenity-group { margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid #f0f0f0; }
-.amenity-group:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-.amenity-title { font-size: 17px; font-weight: 800; color: var(--primary); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
-.amenity-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px 20px; list-style: none; }
-.amenity-item { display: flex; align-items: flex-start; font-size: 15px; color: var(--text-main); line-height: 1.4; }
-.amenity-item i { width: 30px; font-size: 16px; color: var(--muted); flex-shrink: 0; padding-top: 3px; }
+/* TIỆN NGHI - CẬP NHẬT THEO IMAGE_1F52F8.PNG */
+.amenities-wrapper { background: var(--card-bg); padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin-bottom: 40px; }
+.amenity-group { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #f0f0f0; }
+.amenity-group:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.amenity-title { font-size: 18px; font-weight: 800; color: #1e293b; margin-bottom: 15px; }
+.amenity-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 20px; list-style: none; }
+.amenity-item { display: flex; align-items: center; font-size: 14.5px; color: #334155; }
+.amenity-item i { width: 28px; font-size: 16px; color: #64748b; flex-shrink: 0; }
 
-/* SERVICES GRID (TEAM BUILDING & TIỆN ÍCH MIỄN PHÍ) */
-.service-section-title { font-size: 24px; font-weight: 800; color: #1e293b; margin: 40px 0 20px; text-align: left; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; }
-.services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
-.service-card { display: flex; gap: 15px; align-items: flex-start; }
-.service-img { width: 120px; height: 90px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
+/* TIỆN ÍCH DỊCH VỤ - CẬP NHẬT THEO IMAGE_1DEDE3.JPG */
+.service-header { font-size: 24px; font-weight: 800; color: #1e293b; margin: 40px 0 20px; border-left: 5px solid var(--accent); padding-left: 15px; }
+.service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 50px; }
+.service-card { display: flex; gap: 15px; background: #fff; border-radius: 12px; overflow: hidden; }
+.service-img { width: 120px; height: 90px; flex-shrink: 0; }
+.service-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+.service-info { flex: 1; display: flex; flex-direction: column; justify-content: center; }
 .service-info h4 { font-size: 16px; font-weight: 700; color: #1e293b; margin-bottom: 4px; }
-.service-info p { font-size: 13.5px; color: #64748b; line-height: 1.5; }
+.service-info p { font-size: 13px; color: #64748b; line-height: 1.4; }
 
-/* REVIEWS */
-.rev-track { display: flex; gap: 25px; overflow-x: auto; padding: 20px 5px; scroll-snap-type: x mandatory; }
-.rev { min-width: 320px; background: var(--card-bg); padding: 35px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.03); scroll-snap-align: start; border: 1px solid #f0f0f0; }
+/* GALLERY */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 30px; }
+.gallery-grid img { width: 100%; height: 250px; object-fit: cover; border-radius: 12px; transition: 0.3s; }
 
-/* BOOKING FORM */
-.form-section { background: url('https://images.unsplash.com/photo-1519455953755-292201245728?q=80&w=1920&auto=format&fit=crop') center/cover fixed; position: relative; }
-.form-section::before { content: ""; position: absolute; inset: 0; background: rgba(44, 62, 48, 0.88); }
-.form-card { position: relative; z-index: 2; background: var(--glass); max-width: 800px; margin: 0 auto; padding: 50px; border-radius: 16px; }
-.form-group { text-align: left; margin-bottom: 20px; }
-.form-group label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 700; color: var(--primary); text-transform: uppercase; }
-input { width: 100%; padding: 14px; border-radius: 6px; border: 1px solid #ddd; font-size: 16px; }
+/* FORM */
+.form-section { background: var(--primary); color: #fff; }
+.form-card { background: #fff; color: var(--text-main); padding: 40px; border-radius: 16px; max-width: 800px; margin: 0 auto; }
+.form-group { margin-bottom: 20px; text-align: left; }
+.form-group label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--muted); }
+input { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; }
+.submit-btn { background: var(--accent); color: #fff; border: none; padding: 18px; width: 100%; border-radius: 8px; font-weight: 700; font-size: 16px; cursor: pointer; transition: 0.3s; }
+.submit-btn:hover { background: var(--accent-hover); }
 
 @media(max-width: 768px) {
-  .amenity-list { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .services-grid { grid-template-columns: 1fr; gap: 20px; }
-  .service-img { width: 100px; height: 75px; }
-  .amenities-wrapper { padding: 25px 15px; }
+  .service-grid { grid-template-columns: 1fr; gap: 15px; }
+  .service-img { width: 100px; height: 80px; }
+  .amenity-list { grid-template-columns: 1fr; }
+  .section-padding { padding: 40px 0; }
 }
 </style>
 </head>
@@ -93,24 +100,24 @@ input { width: 100%; padding: 14px; border-radius: 6px; border: 1px solid #ddd; 
 
 <section class="hero">
   <div class="hero-inner container">
-    <h1>HOMESTAY HÀ NỘI</h1>
-    <p>Nơi gắn kết tình thân giữa rừng thông Sóc Sơn đại ngàn</p>
-    <a class="btn" href="#form">Nhận Tư Vấn Ngay</a>
+    <h1>HOMESTAY SÓC SƠN</h1>
+    <p>Trải nghiệm kỳ nghỉ dưỡng tuyệt vời giữa thiên nhiên</p>
+    <a class="btn" href="#form">Đặt Phòng Ngay</a>
   </div>
 </section>
 
 <section class="stats container">
   <div class="stats-grid">
-    <div class="stat-card"><div class="stat-num">1200+</div><div class="stat-label">Khách hàng</div></div>
+    <div class="stat-card"><div class="stat-num">2000+</div><div class="stat-label">Khách hàng</div></div>
     <div class="stat-card"><div class="stat-num">4.9/5</div><div class="stat-label">Đánh giá</div></div>
-    <div class="stat-card"><div class="stat-num">98%</div><div class="stat-label">Hài lòng</div></div>
     <div class="stat-card"><div class="stat-num">24/7</div><div class="stat-label">Hỗ trợ</div></div>
   </div>
 </section>
 
 <section class="section-padding">
   <div class="container">
-    <h2 class="center" style="margin-bottom: 40px; font-size: 32px; font-weight: 800; color: var(--primary);">TIỆN NGHI CHỖ Ở</h2>
+    
+    <h2 class="center" style="margin-bottom: 40px; font-size: 28px; font-weight: 800;">THÔNG TIN TIỆN NGHI</h2>
     <div class="amenities-wrapper">
       <div class="amenity-group">
         <h3 class="amenity-title">Chung</h3>
@@ -120,7 +127,7 @@ input { width: 100%; padding: 14px; border-radius: 6px; border: 1px solid #ddd; 
           <li class="amenity-item"><i class="fa-solid fa-snowflake"></i> Điều hòa</li>
           <li class="amenity-item"><i class="fa-solid fa-fan"></i> Quạt</li>
           <li class="amenity-item"><i class="fa-solid fa-wind"></i> Máy sấy</li>
-          <li class="amenity-item"><i class="fa-solid fa-temperature-half"></i> Bình nóng lạnh</li>
+          <li class="amenity-item"><i class="fa-solid fa-temperature-high"></i> Bình nóng lạnh</li>
           <li class="amenity-item"><i class="fa-solid fa-box"></i> Tủ lạnh</li>
           <li class="amenity-item"><i class="fa-solid fa-tree"></i> Nhà trong rừng</li>
         </ul>
@@ -128,9 +135,9 @@ input { width: 100%; padding: 14px; border-radius: 6px; border: 1px solid #ddd; 
       <div class="amenity-group">
         <h3 class="amenity-title">Phòng ngủ</h3>
         <ul class="amenity-list">
-          <li class="amenity-item"><i class="fa-solid fa-closet"></i> Tủ quần áo</li>
+          <li class="amenity-item"><i class="fa-solid fa-door-closed"></i> Tủ quần áo</li>
           <li class="amenity-item"><i class="fa-solid fa-shirt"></i> Móc treo quần áo</li>
-          <li class="amenity-item"><i class="fa-solid fa-bed"></i> Đệm bổ sung</li>
+          <li class="amenity-item"><i class="fa-solid fa-mattress-pillow"></i> Đệm bổ sung</li>
         </ul>
       </div>
       <div class="amenity-group">
@@ -138,181 +145,128 @@ input { width: 100%; padding: 14px; border-radius: 6px; border: 1px solid #ddd; 
         <ul class="amenity-list">
           <li class="amenity-item"><i class="fa-solid fa-bath"></i> Bồn tắm</li>
           <li class="amenity-item"><i class="fa-solid fa-toilet"></i> Toilet</li>
-          <li class="amenity-item"><i class="fa-solid fa-pump-soap"></i> Đồ vệ sinh cá nhân miễn phí</li>
+          <li class="amenity-item"><i class="fa-solid fa-spray-can-sparkles"></i> Đồ vệ sinh cá nhân miễn phí</li>
         </ul>
       </div>
       <div class="amenity-group">
         <h3 class="amenity-title">Phòng bếp</h3>
         <ul class="amenity-list">
-          <li class="amenity-item"><i class="fa-solid fa-bowl-food"></i> Nồi lẩu</li>
+          <li class="amenity-item"><i class="fa-solid fa-fire"></i> Nồi lẩu</li>
           <li class="amenity-item"><i class="fa-solid fa-mug-hot"></i> Ấm đun nước</li>
-          <li class="amenity-item"><i class="fa-solid fa-kitchen-set"></i> Dụng cụ nấu ăn</li>
-          <li class="amenity-item"><i class="fa-solid fa-utensils"></i> Bát đĩa</li>
+          <li class="amenity-item"><i class="fa-solid fa-utensils"></i> Dụng cụ nấu ăn</li>
+          <li class="amenity-item"><i class="fa-solid fa-plate-wheat"></i> Bát đĩa</li>
           <li class="amenity-item"><i class="fa-solid fa-glass-water"></i> Ly cốc</li>
         </ul>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="section-padding section-white">
-  <div class="container">
+    <h2 class="center" style="margin-top: 60px; font-size: 28px; font-weight: 800;">DỊCH VỤ & TIỆN ÍCH NGHỈ DƯỠNG</h2>
     
-    <h3 class="service-section-title">Team building, sự kiện, gala</h3>
-    <div class="services-grid">
+    <div class="service-header">Team building, sự kiện, gala</div>
+    <div class="service-grid">
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=400" class="service-img">
-        <div class="service-info">
-          <h4>Team building</h4>
-          <p>Từ 3.000.000 - 5.000.000đ tuỳ số lượng đoàn</p>
-        </div>
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=400" alt="Team"></div>
+        <div class="service-info"><h4>Team building</h4><p>Từ 3.000.000 - 5.000.000đ tuỳ số lượng đoàn</p></div>
       </div>
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=400" class="service-img">
-        <div class="service-info">
-          <h4>Âm thanh</h4>
-          <p>3.000.000 - 5.000.000đ/ bộ (4 ful - 8 ful)</p>
-        </div>
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=400" alt="Âm thanh"></div>
+        <div class="service-info"><h4>Âm thanh</h4><p>3.000.000 - 5.000.000đ/ bộ (4 ful - 8 ful)</p></div>
       </div>
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=400" class="service-img">
-        <div class="service-info">
-          <h4>Ánh sáng</h4>
-          <p>1.000.000 - 4.000.000đ/ bộ (4 - 8 beam)</p>
-        </div>
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=400" alt="Ánh sáng"></div>
+        <div class="service-info"><h4>Ánh sáng</h4><p>1.000.000 - 4.000.000đ/ bộ (4 - 8 beam)</p></div>
       </div>
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=400" class="service-img">
-        <div class="service-info">
-          <h4>Màn hình, máy chiếu</h4>
-          <p>Màn hình led 1m2: 600.000đ. Máy chiếu: 700.000đ</p>
-        </div>
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1505373633560-82d6f21703ce?q=80&w=400" alt="Màn hình"></div>
+        <div class="service-info"><h4>Màn hình, máy chiếu</h4><p>Màn hình led 1m2: 600.000đ. Máy chiếu: 700.000đ</p></div>
       </div>
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=400" class="service-img">
-        <div class="service-info">
-          <h4>Sân khấu, backdrop</h4>
-          <p>Sân khấu 1tr - 2.5tr tuỳ kích thước. Backdrop khung sắt cứng 120k/m2</p>
-        </div>
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=400" alt="Sân khấu"></div>
+        <div class="service-info"><h4>Sân khấu, backdrop</h4><p>Sân khấu 1tr - 2.5tr tuỳ kích thước. Backdrop khung sắt 120k/m2</p></div>
       </div>
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=400" class="service-img">
-        <div class="service-info">
-          <h4>Bàn ghế</h4>
-          <p>Bàn tròn 10 ghế: 400.000đ/bộ; Bàn chữ nhật 6 ghế: 180.000đ/bộ</p>
-        </div>
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=400" alt="Bàn ghế"></div>
+        <div class="service-info"><h4>Bàn ghế</h4><p>Bàn tròn 10 ghế: 400.000đ/bộ; Bàn chữ nhật 6 ghế: 180.000đ/bộ</p></div>
       </div>
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1496333036655-35112885477f?q=80&w=400" class="service-img">
-        <div class="service-info">
-          <h4>MC gala, Ca sĩ, DJ</h4>
-          <p>1,5 tr/ MC gala. 1,5tr/ Ca sĩ nữ nhạc trẻ. 4tr/ DJ nữ</p>
-        </div>
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1496333036655-3044283519c5?q=80&w=400" alt="MC"></div>
+        <div class="service-info"><h4>MC gala, Ca sĩ, DJ</h4><p>1,5 tr/ MC gala. 1,5tr/ Ca sĩ nữ nhạc trẻ. 4tr/ DJ nữ</p></div>
       </div>
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=400" class="service-img">
-        <div class="service-info">
-          <h4>Chụp ảnh, quay video</h4>
-          <p>1.500.000 - 5.000.000đ/ gói</p>
-        </div>
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=400" alt="Chụp ảnh"></div>
+        <div class="service-info"><h4>Chụp ảnh, quay video</h4><p>1.500.000 - 5.000.000đ/ gói</p></div>
       </div>
     </div>
 
-    <h3 class="service-section-title">Tiện ích miễn phí</h3>
-    <div class="services-grid">
+    <div class="service-header">Tiện ích miễn phí</div>
+    <div class="service-grid">
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=400" class="service-img">
-        <div class="service-info">
-          <h4>Bể bơi riêng</h4>
-          <p>Bể bơi vô cực view hồ Đồng Đò</p>
-        </div>
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=400" alt="Bể bơi"></div>
+        <div class="service-info"><h4>Bể bơi riêng</h4><p>Bể bơi vô cực view hồ Đồng Đò</p></div>
       </div>
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1516280440502-8618a80373ab?q=80&w=400" class="service-img">
-        <div class="service-info">
-          <h4>Dàn karaoke phòng khách</h4>
-          <p>Dàn karaoke chất lượng cao 2 micro kết nối internet</p>
-        </div>
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1516280440502-8618a80373ab?q=80&w=400" alt="Karaoke"></div>
+        <div class="service-info"><h4>Dàn karaoke phòng khách</h4><p>Dàn karaoke chất lượng cao 2 micro kết nối internet</p></div>
       </div>
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=400" class="service-img">
-        <div class="service-info">
-          <h4>1 thuyền Kayak</h4>
-          <p>Free 2 thuyền kayak dạo hồ ngắm cảnh</p>
-        </div>
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=400" alt="Kayak"></div>
+        <div class="service-info"><h4>1 thuyền Kayak</h4><p>Free 2 thuyền kayak dạo hồ ngắm cảnh</p></div>
       </div>
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1500336624523-d727130c3328?q=80&w=400" class="service-img">
-        <div class="service-info">
-          <h4>1 thuyền sup</h4>
-          <p>Free 1 thuyền sup dạo hồ không giới hạn thời gian</p>
-        </div>
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?q=80&w=400" alt="Sup"></div>
+        <div class="service-info"><h4>1 thuyền sup</h4><p>Free 1 thuyền sup dạo hồ không giới hạn thời gian</p></div>
       </div>
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=400" class="service-img">
-        <div class="service-info">
-          <h4>Xông hơi</h4>
-          <p>Phòng xông khô đá muối Himalaya</p>
-        </div>
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=400" alt="Xông hơi"></div>
+        <div class="service-info"><h4>Xông hơi</h4><p>Phòng xông khô đá muối Himalaya</p></div>
       </div>
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1541753866388-0b3c701627d3?q=80&w=400" class="service-img">
-        <div class="service-info">
-          <h4>Câu cá</h4>
-          <p>Câu cá tại hồ (villa có sẵn cần)</p>
-        </div>
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?q=80&w=400" alt="Câu cá"></div>
+        <div class="service-info"><h4>Câu cá</h4><p>Câu cá tại hồ (villa có sẵn cần)</p></div>
       </div>
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=400" class="service-img">
-        <div class="service-info">
-          <h4>2 xe đạp</h4>
-          <p>Đạp xe dạo quanh hồ</p>
-        </div>
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=400" alt="Xe đạp"></div>
+        <div class="service-info"><h4>2 xe đạp</h4><p>Đạp xe dạo quanh hồ</p></div>
       </div>
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=400" class="service-img">
-        <div class="service-info">
-          <h4>Bếp nướng BBQ</h4>
-          <p>Bếp nướng BBQ, bếp lẩu, khu ăn BBQ ngoài trời</p>
-        </div>
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=400" alt="BBQ"></div>
+        <div class="service-info"><h4>Bếp nướng BBQ</h4><p>Bếp nướng BBQ, bếp lẩu, khu ăn BBQ ngoài trời</p></div>
       </div>
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=400" class="service-img">
-        <div class="service-info">
-          <h4>Bếp lẩu</h4>
-          <p>Villa miễn phí sử dụng bếp lẩu</p>
-        </div>
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=400" alt="Lẩu"></div>
+        <div class="service-info"><h4>Bếp lẩu</h4><p>Villa miễn phí sử dụng bếp lẩu</p></div>
       </div>
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1544787210-2211d44b565a?q=80&w=400" class="service-img">
-        <div class="service-info">
-          <h4>Trà, cafe</h4>
-          <p>Trà, cafe theo tiêu chuẩn của villa</p>
-        </div>
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1544787210-2211d402157b?q=80&w=400" alt="Trà"></div>
+        <div class="service-info"><h4>Trà, cafe</h4><p>Trà, cafe theo tiêu chuẩn của villa</p></div>
       </div>
     </div>
-
   </div>
 </section>
 
 <section id="form" class="form-section section-padding">
   <div class="container">
     <div class="form-card">
-      <h2 class="center" style="margin-bottom: 30px; color: var(--primary); font-weight: 800;">NHẬN TƯ VẤN BÁO GIÁ</h2>
+      <h2 class="center" style="margin-bottom: 30px; font-weight: 800;">NHẬN TƯ VẤN BÁO GIÁ</h2>
       <form id="bookingForm">
-        <div class="form-group">
-          <label>Họ và tên (*)</label>
-          <input id="name" type="text" placeholder="Nhập tên của bạn" required>
-        </div>
-        <div class="form-group">
-          <label>Số điện thoại (*)</label>
-          <input id="phone" type="tel" placeholder="Số điện thoại Zalo" required>
-        </div>
-        <button class="btn" type="submit" style="width: 100%; border: none; cursor: pointer;">Gửi yêu cầu tư vấn</button>
+        <div class="form-group"><label>Họ và tên (*)</label><input id="name" type="text" placeholder="Nhập họ tên" required></div>
+        <div class="form-group"><label>Số điện thoại (*)</label><input id="phone" type="tel" placeholder="Nhập số điện thoại" required></div>
+        <div class="form-group"><label>Ngày dự kiến</label><input id="date" type="text" placeholder="DD/MM/YYYY"></div>
+        <button class="submit-btn" type="submit">Gửi yêu cầu tư vấn</button>
       </form>
     </div>
   </div>
 </section>
 
+<footer style="padding: 40px 0; text-align: center; border-top: 1px solid #eee; background: #fff;">
+  <p style="font-weight: 700; color: var(--primary);">HOMESTAY SÓC SƠN - NGHỈ DƯỠNG TRỌN VẸN</p>
+</footer>
+
+<script>
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert("Cảm ơn bạn! Chúng tôi sẽ liên hệ tư vấn ngay.");
+});
+</script>
 </body>
 </html>
