@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
 <title>Homestay Hà Nội - Nghỉ dưỡng Sóc Sơn</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root {
   --accent: #D47E66; 
@@ -55,11 +56,20 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-main); color: var(
 .btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
 
 /* STATS */
-.stats { margin-top: -40px; position: relative; z-index: 3; }
+.stats { margin-top: -40px; position: relative; z-index: 3; margin-bottom: 40px; }
 .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
 .stat-card { background: var(--card-bg); padding: 30px 15px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
 .stat-num { font-size: 36px; font-weight: 800; color: var(--primary); }
 .stat-label { color: var(--muted); margin-top: 5px; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
+
+/* TIỆN NGHI (AMENITIES) */
+.amenities-wrapper { max-width: 900px; margin: 0 auto; background: var(--card-bg); padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+.amenity-group { margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid #f0f0f0; }
+.amenity-group:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.amenity-title { font-size: 18px; font-weight: 800; color: var(--primary); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+.amenity-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; list-style: none; }
+.amenity-item { display: flex; align-items: center; font-size: 16px; color: var(--text-main); }
+.amenity-item i { width: 35px; font-size: 20px; color: var(--muted); }
 
 /* FEATURES */
 .feature-row { display: flex; gap: 50px; align-items: center; margin-bottom: 80px; flex-wrap: wrap; }
@@ -97,6 +107,8 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px 
 .floating a { padding: 16px 24px; border-radius: 8px; font-weight: 700; font-size: 15px; }
 
 @media(max-width: 768px) {
+  .amenity-list { grid-template-columns: 1fr; }
+  .amenities-wrapper { padding: 25px 15px; }
   .feature-row { gap: 30px; margin-bottom: 50px; }
   .feature-img img { height: 280px; }
   .form-row { grid-template-columns: 1fr; gap: 0; }
@@ -121,6 +133,58 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px 
     <div class="stat-card"><div class="stat-num">4.9/5</div><div class="stat-label">Đánh giá</div></div>
     <div class="stat-card"><div class="stat-num">98%</div><div class="stat-label">Hài lòng</div></div>
     <div class="stat-card"><div class="stat-num">24/7</div><div class="stat-label">Hỗ trợ</div></div>
+  </div>
+</section>
+
+<section class="section-padding">
+  <div class="container">
+    <h2 class="center" style="margin-bottom: 40px; font-size: 32px; font-weight: 800; color: var(--primary);">TIỆN NGHI CHỖ Ở</h2>
+    <div class="amenities-wrapper">
+      
+      <div class="amenity-group">
+        <h3 class="amenity-title">Chung</h3>
+        <ul class="amenity-list">
+          <li class="amenity-item"><i class="fa-solid fa-wifi"></i> Wifi</li>
+          <li class="amenity-item"><i class="fa-solid fa-globe"></i> Internet</li>
+          <li class="amenity-item"><i class="fa-solid fa-snowflake"></i> Điều hòa</li>
+          <li class="amenity-item"><i class="fa-solid fa-fan"></i> Quạt</li>
+          <li class="amenity-item"><i class="fa-solid fa-wind"></i> Máy sấy</li>
+          <li class="amenity-item"><i class="fa-solid fa-temperature-arrow-up"></i> Bình nóng lạnh</li>
+          <li class="amenity-item"><i class="fa-solid fa-box"></i> Tủ lạnh</li>
+          <li class="amenity-item"><i class="fa-solid fa-house-tree"></i> Nhà trong rừng</li>
+        </ul>
+      </div>
+
+      <div class="amenity-group">
+        <h3 class="amenity-title">Phòng ngủ</h3>
+        <ul class="amenity-list">
+          <li class="amenity-item"><i class="fa-solid fa-door-closed"></i> Tủ quần áo</li>
+          <li class="amenity-item"><i class="fa-solid fa-shirt"></i> Móc treo quần áo</li>
+          <li class="amenity-item"><i class="fa-solid fa-bed"></i> Đệm bổ sung</li>
+        </ul>
+      </div>
+
+      <div class="amenity-group">
+        <h3 class="amenity-title">Phòng tắm</h3>
+        <ul class="amenity-list">
+          <li class="amenity-item"><i class="fa-solid fa-bath"></i> Bồn tắm</li>
+          <li class="amenity-item"><i class="fa-solid fa-toilet"></i> Toilet</li>
+          <li class="amenity-item"><i class="fa-solid fa-pump-soap"></i> Đồ vệ sinh cá nhân miễn phí</li>
+        </ul>
+      </div>
+
+      <div class="amenity-group">
+        <h3 class="amenity-title">Phòng bếp</h3>
+        <ul class="amenity-list">
+          <li class="amenity-item"><i class="fa-solid fa-fire-burner"></i> Nồi lẩu</li>
+          <li class="amenity-item"><i class="fa-solid fa-mug-hot"></i> Ấm đun nước</li>
+          <li class="amenity-item"><i class="fa-solid fa-utensils"></i> Dụng cụ nấu ăn</li>
+          <li class="amenity-item"><i class="fa-solid fa-bowl-food"></i> Bát đĩa</li>
+          <li class="amenity-item"><i class="fa-solid fa-glass-water"></i> Ly cốc</li>
+        </ul>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -277,7 +341,7 @@ function formatDatePicker(e) {
 document.getElementById('checkin').addEventListener('input', formatDatePicker);
 document.getElementById('checkout').addEventListener('input', formatDatePicker);
 
-/* ====== REVIEWS (THÊM ĐỦ 10 REVIEW) ====== */
+/* ====== REVIEWS ====== */
 const reviews = [
   {name: "Chị Thùy Linh", star: 5, text: "Gia đình mình vừa có chuyến đi cuối tuần cực kỳ đáng nhớ. Không gian rộng rãi, thoáng mát, bao quanh là rừng thông xanh mướt."},
   {name: "Anh Quốc Huy", star: 5, text: "Điểm cộng lớn nhất là khu vực nướng BBQ ngoài trời. Homestay chuẩn bị đầy đủ bếp và than, nhóm mình 15 người tổ chức cực chill."},
