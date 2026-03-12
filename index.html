@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  /* Bảng màu chuyên nghiệp: Xanh rêu tinh tế & Cam đất điểm nhấn */
   --accent: #D47E66; 
   --accent-hover: #BD6A54;
   --primary: #2C3E30; 
@@ -76,10 +75,11 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-main); color: var(
 .gallery-grid img { width: 100%; height: 320px; object-fit: cover; border-radius: 12px; cursor: pointer; transition: 0.4s; }
 .gallery-grid img:hover { transform: scale(1.02); }
 
-/* REVIEWS */
+/* REVIEWS - Cách điệu in nghiêng */
 .rev-track { display: flex; gap: 25px; overflow-x: auto; padding: 20px 5px; scroll-snap-type: x mandatory; }
 .rev { min-width: 320px; background: var(--card-bg); padding: 35px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.03); scroll-snap-align: start; border: 1px solid #f0f0f0; }
-.rev-name { font-weight: 700; color: var(--primary); }
+.rev-name { font-weight: 700; color: var(--primary); margin-bottom: 5px; }
+.rev p { font-style: italic; color: #444; font-size: 15px; }
 
 /* BOOKING FORM */
 .form-section { background: url('https://images.unsplash.com/photo-1519455953755-292201245728?q=80&w=1920&auto=format&fit=crop') center/cover fixed; position: relative; }
@@ -145,6 +145,30 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px 
     </div>
 
     <div class="feature-row">
+        <div class="feature-img"><img src="https://images.unsplash.com/photo-1516280440502-8618a80373ab?q=80&w=1200&auto=format&fit=crop" alt="Karaoke"></div>
+        <div class="feature-content">
+          <div class="feature-title">Phòng Karaoke Giải Trí Hiện Đại</div>
+          <div class="feature-desc">Hệ thống âm thanh sống động, màn hình lớn cùng kho nhạc cập nhật liên tục. Nơi gia đình cùng nhau cất cao tiếng hát và gắn kết yêu thương.</div>
+        </div>
+    </div>
+
+    <div class="feature-row">
+        <div class="feature-img"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1200&auto=format&fit=crop" alt="Kayak"></div>
+        <div class="feature-content">
+          <div class="feature-title">Chèo thuyền Kayak Khám Phá Mặt Hồ</div>
+          <div class="feature-desc">Tận hưởng cảm giác thư thái khi lướt nhẹ trên mặt nước tĩnh lặng. Chúng tôi cung cấp đầy đủ thuyền và áo phao an toàn cho du khách.</div>
+        </div>
+    </div>
+
+    <div class="feature-row">
+        <div class="feature-img"><img src="https://images.unsplash.com/photo-1605281317010-fe5ffe798166?q=80&w=1200&auto=format&fit=crop" alt="Canoeing"></div>
+        <div class="feature-content">
+          <div class="feature-title">Chơi Canoeing Trải Nghiệm Cảm Giác Mạnh</div>
+          <div class="feature-desc">Dành cho những tâm hồn ưa thích khám phá và vận động. Canoeing tại hồ Sóc Sơn mang lại những phút giây sảng khoái và đầy năng lượng.</div>
+        </div>
+    </div>
+
+    <div class="feature-row">
       <div class="feature-img"><img src="https://images.unsplash.com/photo-1622279457486-62dcc4a631d6?q=80&w=1200&auto=format&fit=crop" alt="Pickleball"></div>
       <div class="feature-content">
         <div class="feature-title">Sân Pickleball Thể Thao Năng Động</div>
@@ -164,6 +188,13 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px 
       <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=1200&auto=format&fit=crop" alt="Toàn cảnh">
     </div>
   </div>
+</section>
+
+<section class="section-padding section-white">
+    <div class="container">
+      <h2 class="center" style="margin-bottom: 40px; font-weight: 800;">KHÁCH HÀNG NÓI GÌ?</h2>
+      <div class="rev-track" id="revTrack"></div>
+    </div>
 </section>
 
 <section id="form" class="form-section section-padding">
@@ -187,11 +218,11 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px 
         <div class="form-row">
           <div class="form-group">
             <label>Ngày Check-in dự kiến (*)</label>
-            <input id="checkin" type="date" required>
+            <input id="checkin" type="text" placeholder="Gợi ý: 13/04/2026" maxlength="10" required>
           </div>
           <div class="form-group">
             <label>Ngày Check-out dự kiến (*)</label>
-            <input id="checkout" type="date" required>
+            <input id="checkout" type="text" placeholder="Gợi ý: 14/04/2026" maxlength="10" required>
           </div>
         </div>
 
@@ -203,13 +234,6 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px 
         <button class="submit-btn" type="submit">Gửi thông tin nhận tư vấn</button>
       </form>
     </div>
-  </div>
-</section>
-
-<section class="section-padding">
-  <div class="container">
-    <h2 class="center" style="margin-bottom: 40px; font-weight: 800;">KHÁCH HÀNG NÓI GÌ?</h2>
-    <div class="rev-track" id="revTrack"></div>
   </div>
 </section>
 
@@ -239,32 +263,34 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px 
 const API_URL = "https://script.google.com/macros/s/AKfycbwGPGMKMG-h6SVBBEJ8RkbEBfmu5OCmH9IWqyxbFjq3PfWrJSes1Tg7OfIJCtarIiIA/exec";
 const ZALO = "0365725659";
 
-/* ====== 1. LOGIC GỢI Ý NGÀY (YÊU CẦU 1) ====== */
-const dateIn = document.getElementById('checkin');
-const dateOut = document.getElementById('checkout');
-
-// Thiết lập ngày tối thiểu là hôm nay
-const today = new Date().toISOString().split('T')[0];
-dateIn.setAttribute('min', today);
-
-dateIn.addEventListener('change', function() {
-  if (this.value) {
-    // Khi chọn ngày Check-in, tự động gợi ý ngày Check-out là ngày hôm sau
-    let nextDay = new Date(this.value);
-    nextDay.setDate(nextDay.getDate() + 1);
-    let nextDayStr = nextDay.toISOString().split('T')[0];
-    
-    dateOut.setAttribute('min', nextDayStr);
-    dateOut.value = nextDayStr;
+/* ====== LOGIC AUTO FORMAT NGÀY (DD/MM/YYYY) ====== */
+function formatDatePicker(e) {
+  let v = e.target.value.replace(/\D/g,'').slice(0, 8);
+  if (v.length >= 5) {
+    e.target.value = `${v.slice(0,2)}/${v.slice(2,4)}/${v.slice(4)}`;
+  } else if (v.length >= 3) {
+    e.target.value = `${v.slice(0,2)}/${v.slice(2)}`;
+  } else {
+    e.target.value = v;
   }
-});
+}
+document.getElementById('checkin').addEventListener('input', formatDatePicker);
+document.getElementById('checkout').addEventListener('input', formatDatePicker);
 
-/* ====== REVIEWS (GIỮ NGUYÊN) ====== */
+/* ====== REVIEWS (THÊM ĐỦ 10 REVIEW) ====== */
 const reviews = [
   {name: "Chị Thùy Linh", star: 5, text: "Gia đình mình vừa có chuyến đi cuối tuần cực kỳ đáng nhớ. Không gian rộng rãi, thoáng mát, bao quanh là rừng thông xanh mướt."},
   {name: "Anh Quốc Huy", star: 5, text: "Điểm cộng lớn nhất là khu vực nướng BBQ ngoài trời. Homestay chuẩn bị đầy đủ bếp và than, nhóm mình 15 người tổ chức cực chill."},
-  {name: "Gia đình chú Minh", star: 5, text: "Người lớn tuổi như tôi rất thích không khí ở đây, buổi sáng dậy sớm tản bộ quanh hồ. Rất đáng tiền."}
+  {name: "Gia đình chú Minh", star: 5, text: "Người lớn tuổi như tôi rất thích không khí ở đây, buổi sáng dậy sớm tản bộ quanh hồ. Rất đáng tiền."},
+  {name: "Chị Phương Nga", star: 5, text: "Không gian quá tuyệt vời để nghỉ ngơi. Phòng ốc sạch sẽ, trang trí tinh tế. Chắc chắn sẽ quay lại nhiều lần nữa!"},
+  {name: "Anh Hoàng Nam", star: 5, text: "Dịch vụ chèo thuyền kayak rất thú vị, mặt hồ yên bình. Nhân viên hỗ trợ nhiệt tình, chu đáo vô cùng."},
+  {name: "Bạn Ngọc Anh", star: 5, text: "Mọi thứ đều hoàn hảo, từ hồ bơi vô cực đến sân tennis. Một địa điểm sống ảo không thể bỏ qua tại Sóc Sơn."},
+  {name: "Chị Mai Hoa", star: 5, text: "Tôi thích cách bài trí phòng karaoke, âm thanh rất hay. Cả nhà đã có một đêm hát hò vui vẻ cùng nhau."},
+  {name: "Anh Đức Trọng", star: 5, text: "Địa điểm lý tưởng cho các buổi teambuilding công ty. Sân vườn rộng rãi, tổ chức tiệc BBQ rất thoải mái."},
+  {name: "Chị Lan Anh", star: 5, text: "Bình yên đúng nghĩa! Sáng dậy nghe tiếng chim hót, hít thở không khí trong lành giữa rừng thông thực sự rất sảng khoái."},
+  {name: "Chú Quang", star: 5, text: "Phòng ngủ bằng gỗ ấm cúng, chăn gối thơm tho sạch sẽ. Một trải nghiệm 5 sao ngay giữa lòng thiên nhiên."}
 ];
+
 function renderReviews() {
   const track = document.getElementById('revTrack');
   reviews.forEach(r => {
@@ -276,7 +302,7 @@ function renderReviews() {
 }
 renderReviews();
 
-/* ====== FORM SUBMIT (GIỮ NGUYÊN LOGIC V1.0) ====== */
+/* ====== FORM SUBMIT LOGIC ====== */
 const form = document.getElementById('bookingForm');
 const modal = document.getElementById('modal');
 const msgBox = document.getElementById('msgBox');
@@ -286,19 +312,25 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const name = document.getElementById('name').value;
   const phone = document.getElementById('phone').value;
-  const checkinRaw = document.getElementById('checkin').value;
-  const checkoutRaw = document.getElementById('checkout').value;
+  const checkinStr = document.getElementById('checkin').value;
+  const checkoutStr = document.getElementById('checkout').value;
   const guests = document.getElementById('guests').value;
 
-  // Định dạng ngày sang DD/MM/YYYY để gửi lên Google Sheet
-  const formatDate = (dateStr) => dateStr.split('-').reverse().join('/');
-  const checkinStr = formatDate(checkinRaw);
-  const checkoutStr = formatDate(checkoutRaw);
+  // Validate định dạng ngày
+  if(checkinStr.length < 10 || checkoutStr.length < 10) {
+      alert("Vui lòng nhập ngày đủ định dạng ngày/tháng/năm (VD: 13/04/2026)");
+      return;
+  }
 
-  const d1 = new Date(checkinRaw);
-  const d2 = new Date(checkoutRaw);
+  // Logic tính số ngày đêm
+  const parseDate = (str) => {
+      const p = str.split('/');
+      return new Date(p[2], p[1]-1, p[0]);
+  };
+  const d1 = parseDate(checkinStr);
+  const d2 = parseDate(checkoutStr);
   const nights = Math.round((d2 - d1) / (1000 * 60 * 60 * 24));
-  const stayDurationText = `${nights + 1} ngày ${nights} đêm`;
+  const stayDurationText = nights > 0 ? `${nights + 1} ngày ${nights} đêm` : "1 ngày";
 
   let currentCounter = parseInt(localStorage.getItem('ss_booking_counter') || "1000");
   currentCounter += 1;
