@@ -3,143 +3,105 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-<title>Homestay Hà Nội - Nghỉ dưỡng Sóc Sơn Premium</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
-
+<title>Homestay Hà Nội - Nghỉ dưỡng Sóc Sơn</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  /* Bảng màu Cao cấp: Deep Forest & Luxury Gold */
-  --primary: #1B3022;    /* Xanh rừng sâu: Sang trọng, đẳng cấp */
-  --accent: #C5A358;     /* Vàng đồng: Tinh tế, tạo điểm nhấn cao cấp */
-  --accent-hover: #A68A46;
-  --text-main: #2D3436;
-  --text-light: #636E72;
-  --bg-main: #FDFCFB;    /* Nền kem nhẹ nhàng */
+  /* Bảng màu chuyên nghiệp: Xanh rêu tinh tế & Cam đất điểm nhấn */
+  --accent: #D47E66; 
+  --accent-hover: #BD6A54;
+  --primary: #2C3E30; 
+  --muted: #5F6D61; 
+  --text-main: #1A1A1A; 
+  --bg-main: #F8F9F7; 
   --card-bg: #ffffff;
   --glass: rgba(255, 255, 255, 0.98);
   --maxw: 1200px;
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { 
-    font-family: 'Source Sans Pro', sans-serif; 
-    background: var(--bg-main); 
-    color: var(--text-main); 
-    line-height: 1.7; 
-    overflow-x: hidden; 
-}
-
-h1, h2, h3, .btn, .stat-num { font-family: 'Montserrat', sans-serif; }
-
+body { font-family: 'Inter', sans-serif; background: var(--bg-main); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
 .container { width: 90%; max-width: var(--maxw); margin: 0 auto; }
 .center { text-align: center; }
 
 .section-white { background-color: #ffffff; }
 .section-padding { padding: 80px 0; }
 
-/* HERO - Nâng cấp hiệu ứng Overlay */
+/* HERO */
 .hero {
-  min-height: 90vh;
+  min-height: 85vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
   position: relative;
   background: url("https://images.unsplash.com/photo-1542718610-a1d656d1884c?q=80&w=1920&auto=format&fit=crop") center/cover no-repeat;
 }
-.hero::after { 
-    content: ""; position: absolute; inset: 0; 
-    background: linear-gradient(to bottom, rgba(27,48,34,0.3) 0%, rgba(27,48,34,0.7) 100%); 
-}
-.hero-inner { position: relative; z-index: 2; text-align: center; padding: 20px; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(44,62,48,0.3) 0%, rgba(44,62,48,0.7) 100%); }
+.hero-inner { position: relative; z-index: 2; text-align: center; padding: 20px; width: 100%; }
 
 .hero h1 { 
-  font-size: clamp(32px, 6vw, 64px); 
-  margin-bottom: 20px;
+  font-size: clamp(32px, 5vw, 60px); 
+  margin: 0 0 15px; 
+  font-weight: 800;
   letter-spacing: -1px;
-  line-height: 1.1;
 }
-.hero p { 
-    font-size: clamp(18px, 3vw, 22px); 
-    margin-bottom: 35px; 
-    font-weight: 300; 
-    letter-spacing: 1px;
-    opacity: 0.9;
-}
+.hero p { font-size: clamp(18px, 3vw, 22px); margin: 0 0 30px; font-weight: 300; opacity: 0.9; }
 
 .btn { 
-  background: var(--accent); color: #fff; padding: 18px 40px; border-radius: 4px; 
-  text-decoration: none; font-weight: 700; font-size: 14px; text-transform: uppercase;
-  letter-spacing: 2px; transition: 0.4s; display: inline-block;
-  box-shadow: 0 10px 20px rgba(197, 163, 88, 0.3);
+  background: var(--accent); color: #fff; padding: 16px 36px; border-radius: 8px; 
+  text-decoration: none; font-weight: 700; font-size: 16px;
+  box-shadow: 0 4px 15px rgba(212, 126, 102, 0.4); transition: 0.3s; display: inline-block;
 }
-.btn:hover { background: var(--accent-hover); transform: translateY(-3px); box-shadow: 0 15px 25px rgba(197, 163, 88, 0.4); }
+.btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
 
-/* STATS - Thiết kế lại tối giản hơn */
-.stats { margin-top: -60px; position: relative; z-index: 10; }
-.stats-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
-    gap: 0; 
-    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    overflow: hidden;
-}
-.stat-card { 
-    background: var(--card-bg); 
-    padding: 40px 20px; 
-    text-align: center; 
-    border-right: 1px solid #f0f0f0;
-}
-.stat-card:last-child { border-right: none; }
-.stat-num { font-size: 36px; font-weight: 800; color: var(--primary); margin-bottom: 5px; }
-.stat-label { color: var(--text-light); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+/* STATS */
+.stats { margin-top: -40px; position: relative; z-index: 3; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+.stat-card { background: var(--card-bg); padding: 30px 15px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
+.stat-num { font-size: 36px; font-weight: 800; color: var(--primary); }
+.stat-label { color: var(--muted); margin-top: 5px; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
 
 /* FEATURES */
-.feature-title { font-size: 26px; font-weight: 700; margin-bottom: 20px; color: var(--primary); }
-.feature-desc { color: var(--text-light); font-size: 17px; }
-.feature-img img { height: 400px; border-radius: 4px; transition: 0.5s; }
-.feature-img img:hover { transform: scale(1.03); }
-
-/* BOOKING FORM - Cập nhật giao diện hiện đại */
-.form-section { 
-    background: url('https://images.unsplash.com/photo-1519455953755-292201245728?q=80&w=1920&auto=format&fit=crop') center/cover fixed; 
-    position: relative; 
-}
-.form-section::before { content: ""; position: absolute; inset: 0; background: rgba(27, 48, 34, 0.9); }
-.form-card { 
-    position: relative; z-index: 2; background: var(--glass); 
-    max-width: 700px; margin: 0 auto; padding: 50px; border-radius: 4px; 
-}
-.form-group label { color: var(--primary); font-family: 'Montserrat'; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; margin-bottom: 10px; }
-input { 
-    width: 100%; padding: 15px; border-radius: 0; border: none; border-bottom: 2px solid #eee;
-    background: #f9f9f9; font-size: 16px; transition: 0.3s; 
-}
-input:focus { outline: none; border-bottom-color: var(--accent); background: #fff; }
-
-.submit-btn { 
-    background: var(--primary); color: #fff; padding: 20px; border: none; width: 100%; 
-    font-family: 'Montserrat'; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
-    cursor: pointer; transition: 0.4s; margin-top: 20px;
-}
-.submit-btn:hover { background: #000; letter-spacing: 4px; }
-
-/* REVIEWS */
-.rev { border: none; background: #fdfcfb; padding: 40px; }
-.rev-name { color: var(--primary); text-transform: uppercase; letter-spacing: 1px; font-size: 15px; }
+.feature-row { display: flex; gap: 50px; align-items: center; margin-bottom: 80px; flex-wrap: wrap; }
+.feature-row:nth-child(even) { flex-direction: row-reverse; }
+.feature-img { flex: 1.2; }
+.feature-img img { width: 100%; border-radius: 12px; height: 400px; object-fit: cover; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+.feature-content { flex: 1; }
+.feature-title { font-size: 28px; font-weight: 700; margin-bottom: 20px; color: var(--primary); }
+.feature-desc { color: var(--muted); font-size: 17px; line-height: 1.8; }
 
 /* GALLERY */
-.gallery-grid img { height: 350px; border-radius: 4px; }
+.gallery-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 15px; margin-top: 40px; }
+.gallery-grid img { width: 100%; height: 320px; object-fit: cover; border-radius: 12px; cursor: pointer; transition: 0.4s; }
+.gallery-grid img:hover { transform: scale(1.02); }
 
-/* MODAL */
-.modal-card { border-radius: 4px; padding: 40px; }
+/* REVIEWS */
+.rev-track { display: flex; gap: 25px; overflow-x: auto; padding: 20px 5px; scroll-snap-type: x mandatory; }
+.rev { min-width: 320px; background: var(--card-bg); padding: 35px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.03); scroll-snap-align: start; border: 1px solid #f0f0f0; }
+.rev-name { font-weight: 700; color: var(--primary); }
 
-/* MOBILE */
+/* BOOKING FORM */
+.form-section { background: url('https://images.unsplash.com/photo-1519455953755-292201245728?q=80&w=1920&auto=format&fit=crop') center/cover fixed; position: relative; }
+.form-section::before { content: ""; position: absolute; inset: 0; background: rgba(44, 62, 48, 0.88); }
+.form-card { position: relative; z-index: 2; background: var(--glass); max-width: 800px; margin: 0 auto; padding: 50px; border-radius: 16px; box-shadow: 0 25px 50px rgba(0,0,0,0.2); }
+.form-group { text-align: left; margin-bottom: 25px; }
+.form-group label { display: block; margin-bottom: 10px; font-size: 14px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+input { width: 100%; padding: 15px; border-radius: 6px; border: 1px solid #ddd; font-size: 16px; font-family: inherit; transition: 0.3s; }
+input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(212, 126, 102, 0.1); }
+.submit-btn { background: var(--primary); border: none; padding: 20px; border-radius: 6px; color: #fff; font-weight: 700; font-size: 16px; width: 100%; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+.submit-btn:hover { background: #1a261d; transform: translateY(-2px); }
+
+/* FLOATING */
+.floating a { padding: 16px 24px; border-radius: 8px; font-weight: 700; font-size: 15px; }
+
 @media(max-width: 768px) {
-    .section-padding { padding: 50px 0; }
-    .form-card { padding: 30px 20px; }
-    .stat-card { border-right: none; border-bottom: 1px solid #f0f0f0; }
+  .feature-row { gap: 30px; margin-bottom: 50px; }
+  .feature-img img { height: 280px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .form-card { padding: 35px 20px; }
+  .gallery-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -147,9 +109,9 @@ input:focus { outline: none; border-bottom-color: var(--accent); background: #ff
 
 <section class="hero">
   <div class="hero-inner container">
-    <p>RETREAT & NATURE</p>
-    <h1>TRẢI NGHIỆM KỲ NGHỈ<br>SANG TRỌNG TẠI SÓC SƠN</h1>
-    <a class="btn" href="#form">Đặt phòng ngay</a>
+    <h1>HOMESTAY HÀ NỘI</h1>
+    <p>Nơi gắn kết tình thân giữa rừng thông Sóc Sơn đại ngàn</p>
+    <a class="btn" href="#form">Nhận Tư Vấn Ngay</a>
   </div>
 </section>
 
@@ -158,35 +120,35 @@ input:focus { outline: none; border-bottom-color: var(--accent); background: #ff
     <div class="stat-card"><div class="stat-num">1200+</div><div class="stat-label">Khách hàng</div></div>
     <div class="stat-card"><div class="stat-num">4.9/5</div><div class="stat-label">Đánh giá</div></div>
     <div class="stat-card"><div class="stat-num">98%</div><div class="stat-label">Hài lòng</div></div>
-    <div class="stat-card"><div class="stat-num">Premium</div><div class="stat-label">Dịch vụ</div></div>
+    <div class="stat-card"><div class="stat-num">24/7</div><div class="stat-label">Hỗ trợ</div></div>
   </div>
 </section>
 
 <section class="section-padding section-white">
   <div class="container">
-    <h2 class="center" style="margin-bottom: 60px; font-size: 32px; color: var(--primary);">TIỆN ÍCH ĐẶC QUYỀN</h2>
+    <h2 class="center" style="margin-bottom: 60px; font-size: 32px; font-weight: 800; color: var(--primary);">TIỆN ÍCH NGHỈ DƯỠNG</h2>
     
     <div class="feature-row">
       <div class="feature-img"><img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?q=80&w=1200&auto=format&fit=crop" alt="Bể bơi"></div>
       <div class="feature-content">
-        <div class="feature-title">Bể bơi vô cực tầm nhìn Panorama</div>
-        <div class="feature-desc">Trải nghiệm cảm giác thư thái tuyệt đối khi hòa mình vào làn nước xanh mát, phóng tầm mắt ngắm trọn vẻ đẹp hùng vĩ của rừng thông Sóc Sơn từ trên cao.</div>
+        <div class="feature-title">Bể bơi vô cực view rừng thông</div>
+        <div class="feature-desc">Đắm mình trong làn nước trong xanh, ngắm trọn vẹn bình minh ló rạng sau rặng thông. Không gian thư giãn tuyệt đối cho cả gia đình.</div>
       </div>
     </div>
 
     <div class="feature-row">
-        <div class="feature-img"><img src="https://images.unsplash.com/photo-1510107873837-7b6bb81c81ef?q=80&w=1200&auto=format&fit=crop" alt="BBQ"></div>
-        <div class="feature-content">
-          <div class="feature-title">Tiệc tối BBQ dưới ánh sao</div>
-          <div class="feature-desc">Không gian sân vườn rộng lớn được decor ánh sáng tinh tế, lý tưởng cho những bữa tiệc nướng ấm cúng bên người thân và bạn bè giữa không gian thiên nhiên tĩnh lặng.</div>
-        </div>
+      <div class="feature-img"><img src="https://images.unsplash.com/photo-1510107873837-7b6bb81c81ef?q=80&w=1200&auto=format&fit=crop" alt="BBQ"></div>
+      <div class="feature-content">
+        <div class="feature-title">Tiệc BBQ Sân Vườn Chill Dưới Sao</div>
+        <div class="feature-desc">Trang bị sẵn bếp nướng hiện đại và bàn ghế phong cách. Cùng nhau tổ chức tiệc nướng sảng khoái giữa tiết trời se lạnh của Sóc Sơn.</div>
       </div>
+    </div>
 
     <div class="feature-row">
       <div class="feature-img"><img src="https://images.unsplash.com/photo-1622279457486-62dcc4a631d6?q=80&w=1200&auto=format&fit=crop" alt="Pickleball"></div>
       <div class="feature-content">
-        <div class="feature-title">Sân Pickleball tiêu chuẩn</div>
-        <div class="feature-desc">Duy trì lối sống năng động ngay cả khi nghỉ dưỡng với sân chơi Pickleball hiện đại, trang thiết bị đầy đủ dành riêng cho khách lưu trú.</div>
+        <div class="feature-title">Sân Pickleball Thể Thao Năng Động</div>
+        <div class="feature-desc">Sân chơi tiêu chuẩn ngay trong khuôn viên, là nơi lý tưởng để gia đình và bạn bè cùng nhau vận động, nâng cao sức khỏe.</div>
       </div>
     </div>
   </div>
@@ -194,12 +156,12 @@ input:focus { outline: none; border-bottom-color: var(--accent); background: #ff
 
 <section class="section-padding" id="gallery">
   <div class="container">
-    <h2 class="center" style="margin-bottom: 40px; color: var(--primary);">BỘ SƯU TẬP KHÔNG GIAN</h2>
+    <h2 class="center" style="font-weight: 800; font-size: 32px;">KHÔNG GIAN NGHỈ DƯỠNG</h2>
     <div class="gallery-grid">
       <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=1200&auto=format&fit=crop" alt="Nhà gỗ">
       <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?q=80&w=800&auto=format&fit=crop" alt="Phòng ngủ">
       <img src="https://images.unsplash.com/photo-1521401830884-6c03c1c87ebb?q=80&w=800&auto=format&fit=crop" alt="Bàn trà">
-      <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=1200&auto=format&fit=crop" alt="View hồ">
+      <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=1200&auto=format&fit=crop" alt="Toàn cảnh">
     </div>
   </div>
 </section>
@@ -207,118 +169,114 @@ input:focus { outline: none; border-bottom-color: var(--accent); background: #ff
 <section id="form" class="form-section section-padding">
   <div class="container">
     <div class="form-card">
-      <h2 class="center" style="margin-bottom: 10px; color: var(--primary);">LIÊN HỆ ĐẶT PHÒNG</h2>
-      <p class="center" style="margin-bottom: 40px; color: var(--text-light);">Để lại thông tin để nhận báo giá ưu đãi và lịch trống mới nhất.</p>
+      <h2 class="center" style="margin-bottom: 10px; color: var(--primary); font-weight: 800;">TÔI MUỐN ĐƯỢC TƯ VẤN</h2>
+      <p class="center" style="margin-bottom: 40px; color: var(--muted);">Để lại thông tin, chúng tôi sẽ liên hệ báo giá ngay trong 5 phút.</p>
       
       <form id="bookingForm">
         <div class="form-row">
           <div class="form-group">
-            <label>Họ và tên (*)</label>
-            <input id="name" type="text" placeholder="Nguyễn Văn A" required>
+            <label>Họ và tên người đặt (*)</label>
+            <input id="name" type="text" placeholder="Nhập họ tên của bạn" required>
           </div>
           <div class="form-group">
             <label>Số điện thoại Zalo (*)</label>
-            <input id="phone" type="tel" placeholder="09xxxxxxxx" maxlength="10" required>
+            <input id="phone" type="tel" placeholder="VD: 0365725659" maxlength="10" required>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label>Ngày Check-in (*)</label>
+            <label>Ngày Check-in dự kiến (*)</label>
             <input id="checkin" type="date" required>
           </div>
           <div class="form-group">
-            <label>Ngày Check-out (*)</label>
+            <label>Ngày Check-out dự kiến (*)</label>
             <input id="checkout" type="date" required>
           </div>
         </div>
 
         <div class="form-group">
-          <label>Số lượng người (Cả đoàn)</label>
-          <input id="guests" type="number" min="1" placeholder="Ví dụ: 10" required>
+          <label>Số lượng người trong đoàn</label>
+          <input id="guests" type="number" min="1" placeholder="VD: 10" required>
         </div>
 
-        <button class="submit-btn" type="submit">Gửi yêu cầu tư vấn</button>
+        <button class="submit-btn" type="submit">Gửi thông tin nhận tư vấn</button>
       </form>
     </div>
   </div>
 </section>
 
 <section class="section-padding">
-    <div class="container">
-      <h2 class="center" style="margin-bottom: 40px; color: var(--primary);">NHẬN XÉT TỪ KHÁCH HÀNG</h2>
-      <div class="rev-track" id="revTrack"></div>
-    </div>
+  <div class="container">
+    <h2 class="center" style="margin-bottom: 40px; font-weight: 800;">KHÁCH HÀNG NÓI GÌ?</h2>
+    <div class="rev-track" id="revTrack"></div>
+  </div>
 </section>
 
-<div class="modal" id="modal">
-  <div class="modal-card">
-    <h3 style="margin-bottom: 15px; color: var(--primary);">XÁC NHẬN ĐĂNG KÝ</h3>
-    <div id="confirmText" style="margin-bottom: 15px; font-size: 15px;"></div>
-    <textarea id="msgBox" class="msgbox" style="width: 100%; height: 150px; padding: 10px; background: #f5f5f5; border: 1px solid #ddd; border-radius: 4px; font-family: inherit;" readonly></textarea>
-    <button id="copyAndZaloBtn" class="submit-btn" style="background: #0068ff;">COPY & MỞ ZALO NGAY</button>
-    <div style="text-align:center; margin-top:15px;">
-      <button id="closeModal" style="background:none; border:none; color: #999; cursor:pointer;">Bỏ qua</button>
-    </div>
+<div class="modal" id="modal" style="position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.8); z-index: 999; backdrop-filter: blur(5px);">
+  <div class="modal-card" style="width: 92%; max-width: 500px; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+    <h3 style="margin-bottom: 15px; color: var(--primary); font-weight: 800;">XÁC NHẬN THÔNG TIN</h3>
+    <div id="confirmText" style="margin-bottom: 15px; font-size: 15px; color: #555;"></div>
+    <textarea id="msgBox" style="width: 100%; height: 160px; border: 1px solid #eee; padding: 15px; font-family: inherit; font-size: 14px; border-radius: 6px; background: #f9f9f9; margin-bottom: 20px; resize: none;" readonly></textarea>
+    <button id="copyAndZaloBtn" style="width: 100%; padding: 18px; border-radius: 6px; background: #0068ff; color: #fff; border: none; font-weight: 700; cursor: pointer;">📋 COPY & MỞ ZALO NGAY</button>
+    <div style="text-align: right; margin-top: 15px;"><button id="closeModal" style="background: none; border: none; color: #999; font-weight: 600; cursor: pointer;">Đóng ✕</button></div>
   </div>
 </div>
 
-<div class="floating">
-  <a href="#" id="floatingZaloBtn" style="background: #0068ff; color: white; padding: 15px 25px; border-radius: 4px; text-decoration: none; font-weight: 600;">Chat Zalo</a>
-  <a href="tel:0365725659" class="call" style="background: var(--primary); color: white; padding: 15px 25px; border-radius: 4px; text-decoration: none; font-weight: 600; margin-top: 10px; display: block;">Gọi: 0365.725.659</a>
+<div class="floating" style="position: fixed; right: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 90;">
+  <a href="#" id="floatingZaloBtn" style="background: #0068ff; color: #fff; text-decoration: none; box-shadow: 0 10px 20px rgba(0,104,255,0.3);">💬 Chat Zalo</a>
+  <a href="tel:0365725659" style="background: #ef4444; color: #fff; text-decoration: none; box-shadow: 0 10px 20px rgba(239,68,68,0.3);">📞 0365.725.659</a>
 </div>
 
-<footer style="background: var(--primary); color: rgba(255,255,255,0.7); padding: 60px 0; text-align: center;">
-    <div class="container">
-      <p style="color: white; font-weight: 700; margin-bottom: 10px; letter-spacing: 2px;">HOMESTAY HÀ NỘI - SÓC SƠN</p>
-      <p>© 2026 Premium Retreat. All rights reserved.</p>
-    </div>
+<footer style="padding: 60px 0; text-align: center; background: #fff; border-top: 1px solid #eee;">
+  <div class="container">
+    <p style="font-weight: 800; color: var(--primary); margin-bottom: 10px;">HOMESTAY NGHỈ DƯỠNG SÓC SƠN</p>
+    <p style="color: var(--muted); font-size: 14px;">© 2026 Bản quyền thuộc về thương hiệu.</p>
+  </div>
 </footer>
 
 <script>
 const API_URL = "https://script.google.com/macros/s/AKfycbwGPGMKMG-h6SVBBEJ8RkbEBfmu5OCmH9IWqyxbFjq3PfWrJSes1Tg7OfIJCtarIiIA/exec";
 const ZALO = "0365725659";
 
-// --- Tự động thiết lập ngày gợi ý ---
+/* ====== 1. LOGIC GỢI Ý NGÀY (YÊU CẦU 1) ====== */
 const dateIn = document.getElementById('checkin');
 const dateOut = document.getElementById('checkout');
 
-// Thiết lập ngày tối thiểu là ngày hôm nay
+// Thiết lập ngày tối thiểu là hôm nay
 const today = new Date().toISOString().split('T')[0];
 dateIn.setAttribute('min', today);
 
 dateIn.addEventListener('change', function() {
-    if (this.value) {
-        // Tự động gợi ý ngày checkout là ngày hôm sau của ngày checkin
-        let nextDay = new Date(this.value);
-        nextDay.setDate(nextDay.getDate() + 1);
-        let nextDayStr = nextDay.toISOString().split('T')[0];
-        
-        dateOut.setAttribute('min', nextDayStr);
-        dateOut.value = nextDayStr;
-    }
+  if (this.value) {
+    // Khi chọn ngày Check-in, tự động gợi ý ngày Check-out là ngày hôm sau
+    let nextDay = new Date(this.value);
+    nextDay.setDate(nextDay.getDate() + 1);
+    let nextDayStr = nextDay.toISOString().split('T')[0];
+    
+    dateOut.setAttribute('min', nextDayStr);
+    dateOut.value = nextDayStr;
+  }
 });
 
-/* ====== REVIEWS ====== */
+/* ====== REVIEWS (GIỮ NGUYÊN) ====== */
 const reviews = [
   {name: "Chị Thùy Linh", star: 5, text: "Gia đình mình vừa có chuyến đi cuối tuần cực kỳ đáng nhớ. Không gian rộng rãi, thoáng mát, bao quanh là rừng thông xanh mướt."},
   {name: "Anh Quốc Huy", star: 5, text: "Điểm cộng lớn nhất là khu vực nướng BBQ ngoài trời. Homestay chuẩn bị đầy đủ bếp và than, nhóm mình 15 người tổ chức cực chill."},
-  {name: "Nhóm bạn Ngọc Trang", star: 5, text: "Rất riêng tư và yên tĩnh. Tụi mình thuê nguyên căn, tha hồ hát hò ở phòng karaoke cách âm mà không sợ làm phiền ai."},
   {name: "Gia đình chú Minh", star: 5, text: "Người lớn tuổi như tôi rất thích không khí ở đây, buổi sáng dậy sớm tản bộ quanh hồ. Rất đáng tiền."}
 ];
-
 function renderReviews() {
   const track = document.getElementById('revTrack');
   reviews.forEach(r => {
     const div = document.createElement('div');
     div.className = 'rev';
-    div.innerHTML = `<div class="rev-name">${r.name}</div><div style="color:#C5A358; margin: 10px 0;">${'★'.repeat(r.star)}</div><p>"${r.text}"</p>`;
+    div.innerHTML = `<div class="rev-name">${r.name}</div><div style="color:#f59e0b; margin: 8px 0;">${'★'.repeat(r.star)}</div><p>"${r.text}"</p>`;
     track.appendChild(div);
   });
 }
 renderReviews();
 
-/* ====== FORM SUBMIT ====== */
+/* ====== FORM SUBMIT (GIỮ NGUYÊN LOGIC V1.0) ====== */
 const form = document.getElementById('bookingForm');
 const modal = document.getElementById('modal');
 const msgBox = document.getElementById('msgBox');
@@ -332,7 +290,7 @@ form.addEventListener('submit', async (e) => {
   const checkoutRaw = document.getElementById('checkout').value;
   const guests = document.getElementById('guests').value;
 
-  // Định dạng lại ngày để hiển thị và gửi sheet (YYYY-MM-DD -> DD/MM/YYYY)
+  // Định dạng ngày sang DD/MM/YYYY để gửi lên Google Sheet
   const formatDate = (dateStr) => dateStr.split('-').reverse().join('/');
   const checkinStr = formatDate(checkinRaw);
   const checkoutStr = formatDate(checkoutRaw);
@@ -353,9 +311,9 @@ form.addEventListener('submit', async (e) => {
     })});
   } catch(err) { console.warn('Lỗi gửi data'); }
 
-  const message = `Chào Homestay, tôi muốn đặt phòng:\n- Khách: ${name}\n- SĐT: ${phone}\n- Lịch: ${checkinStr} đến ${checkoutStr}\n- Số người: ${guests}\n- Mã: ${bookingCode}`;
+  const message = `Chào Homestay, tôi muốn nhận tư vấn:\n\n- Khách hàng: ${name}\n- SĐT: ${phone}\n- Check-in: ${checkinStr}\n- Check-out: ${checkoutStr}\n- Số khách: ${guests}\n- Lưu trú: ${stayDurationText}\n\nMã: ${bookingCode}`;
   
-  confirmText.innerHTML = `Chào <strong>${name}</strong>, chúng tôi đã nhận được yêu cầu.`;
+  confirmText.innerHTML = `<strong>Thông tin đã sẵn sàng!</strong><br>Vui lòng ấn nút bên dưới để gửi qua Zalo.`;
   msgBox.value = message;
   modal.style.display = 'flex';
 });
@@ -364,7 +322,6 @@ document.getElementById('copyAndZaloBtn').addEventListener('click', async () => 
   try { await navigator.clipboard.writeText(msgBox.value); } catch(e) { msgBox.select(); document.execCommand('copy'); }
   window.open("https://zalo.me/" + ZALO, '_blank');
 });
-
 document.getElementById('closeModal').addEventListener('click', () => modal.style.display = 'none');
 document.getElementById('floatingZaloBtn').addEventListener('click', (e) => {
   e.preventDefault();
